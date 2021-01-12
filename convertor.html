@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Title</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- UIkit CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.10/dist/css/uikit.min.css" />
+
+<!-- UIkit JS -->
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.6.10/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.6.10/dist/js/uikit-icons.min.js"></script>
+
+    </head>
+    <body>
+
+        <nav class="uk-navbar-container uk-margin" uk-navbar="mode: click" style="background-color: #0cbaba;
+background-image: linear-gradient(315deg, #0cbaba 0%, #380036 74%);
+">
+    <div class="uk-navbar-left">
+
+        <ul class="uk-navbar-nav">
+            <li class="uk-active"><a href="#" style="color:#fff;font-size:4vh">Convertor</a></li>
+        
+            
+        </ul>
+
+    </div>
+</nav>
+
+<!--------------------------COde---------------------------->
+
+<div class="uk-container" style="margin-top: 5vh">
+    <h1 style="text-align:center">Currency Convertor</h1>
+   
+
+    <div class="uk-margin">
+        
+        <div class="uk-form-controls">
+            <input class="uk-input" id="Amount" type="number" placeholder="Enter Amount">
+        </div>
+    </div>
+
+    <div class="uk-margin">
+        <label class="uk-form-label" for="form-horizontal-select">From</label>
+        <div class="uk-form-controls">
+            <select class="uk-select" id="from">
+                <option>USD</option>
+                 <option>Euros</option>
+                  <option>Rupees</option>
+            </select>
+        </div>
+    </div>
+    <div class="uk-margin">
+        <label class="uk-form-label" for="form-horizontal-select">To</label>
+        <div class="uk-form-controls">
+            <select class="uk-select" id="to">
+                <option>USD</option>
+                 <option>Euros</option>
+                  <option>Rupees</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="uk-margin">
+        <a class="uk-button uk-button-secondary" onclick="convert()"> Convert </a>
+</div>
+   
+
+
+</div>
+
+<hr>
+
+<h1 style="text-align:center">Conversion</h1>
+<div class="uk-container">
+<div class="uk-light uk-background-secondary uk-padding">
+<h1 id="ans" style="text-align:center;font-size:10vh; "></h1></div>
+</div>
+
+
+
+
+
+    </body>
+
+<script type="text/javascript">
+var ans;
+
+    function convert() {
+        amount=document.getElementById("Amount").value;
+        if (amount >= 0) {
+            console.log(amount)
+
+            from = document.getElementById('from').value;
+            to = document.getElementById('to').value;
+        if (from == 'USD' && to == 'Rupees'){
+            ans = (amount * 73.30);
+            console.log(ans)
+            document.getElementById("ans").innerHTML = ans;
+
+
+        } //USD - Rs
+        else if(from == 'Rupees' && to == 'USD'){
+            ans = (amount/73.30);
+            console.log(ans)
+            document.getElementById("ans").innerHTML = ans;
+
+        }
+        else if (from == 'Euros' && to == 'Rupees'){
+            ans = (amount * 89.24);
+            console.log(ans)
+            document.getElementById("ans").innerHTML = ans;
+
+        }
+        else if (from == 'Rupees' && to == 'Euros'){
+            ans = (amount/ 89.24);
+            console.log(ans)
+            document.getElementById("ans").innerHTML = ans;
+
+        }
+        else if (from == 'USD' && to == 'Euros'){
+            ans = (amount * 0.82);
+            console.log(ans)
+            document.getElementById("ans").innerHTML = ans;
+
+        }
+        else if (from == 'Euros' && to == 'USD'){
+            ans = (amount * 1.22);
+            console.log(ans)
+            document.getElementById("ans").innerHTML = ans;
+
+        }
+        else if (from == to){
+            ans = amount;
+            document.getElementById("ans").innerHTML = ans;
+
+
+        }
+
+
+        } 
+        else{
+            alert('invalid')
+        }
+
+        
+
+        
+
+    }
+
+           
+
+
+    
+    
+</script>
+
+</html>
